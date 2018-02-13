@@ -23,3 +23,21 @@ function adjacentElementsProduct(inputArray) {
     return max;
 }
 ```
+# 2 shapeArea
+
+Example
+
+For n = 2, the output should be
+
+shapeArea(n) = 5;
+
+For n = 3, the output should be
+
+shapeArea(n) = 13.
+
+solution:
+```js
+function shapeArea(n) {
+    return (n*((n-1)*2))+1;
+}
+```
