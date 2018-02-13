@@ -35,9 +35,19 @@ For n = 3, the output should be
 
 shapeArea(n) = 13.
 
+For n = 4, the output should be
+
+shapeArea(n) = 25.
+
 solution:
 ```js
 function shapeArea(n) {
     return (n*((n-1)*2))+1;
+
+//other best answer
+function shapeArea(n) {
+    return n*n + (n-1)*(n-1);
+}
+
 }
 ```
