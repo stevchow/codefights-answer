@@ -51,3 +51,29 @@ function shapeArea(n) {
 
 }
 ```
+
+# Make Array Consecutive 2
+
+//first sort it ascending and assign it to new array called sortAsc
+//then it ask for the length or how many missing number in the given array that would formed an array with range by 1 from one index to next index or previous index
+// answer, search the max value of array by using sortAsc[sortAsc.length-1], minus one because index start from zero and length start from one
+// we also search for the minimum value by sortAsc[0]
+// I still dont get it why we should add 1
+// then we substract it with sortAsc array length.
+
+
+
+```js
+function makeArrayConsecutive2(statues) {
+    const sortAsc = statues.sort((a,b) => a-b);
+    return sortAsc[sortAsc.length-1] - sortAsc[0] + 1 - sortAsc.length;  
+}
+```
+
+//best practice
+
+// function makeArrayConsecutive2(sequence) {
+//   return Math.max(...sequence)-Math.min(...sequence)+1-sequence.length
+// }
+
+
