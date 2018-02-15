@@ -68,12 +68,52 @@ function makeArrayConsecutive2(statues) {
     const sortAsc = statues.sort((a,b) => a-b);
     return sortAsc[sortAsc.length-1] - sortAsc[0] + 1 - sortAsc.length;  
 }
-```
+
 
 //best practice
+function makeArrayConsecutive2(sequence) {
+    return Math.max(...sequence)-Math.min(...sequence)+1-sequence.length
+}
+```
 
-// function makeArrayConsecutive2(sequence) {
-//   return Math.max(...sequence)-Math.min(...sequence)+1-sequence.length
-// }
+# almostIncreasingSequence
+
+Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
+
+Example
+
+For sequence = [1, 3, 2, 1], the output should be
+almostIncreasingSequence(sequence) = false;
+
+There is no one element in this array that can be removed in order to get a strictly increasing sequence.
+
+For sequence = [1, 3, 2], the output should be
+almostIncreasingSequence(sequence) = true.
+
+You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
+
+```js
+
+//still do not know why this isn't working
+
+function almostIncreasingSequence(sequence) {
+    for(let i = 1; i < sequence.length; i++){
+        let spliceData = sequence[i];
+        sequence.splice(i, 1);
+        if(sequence[0] > sequence[i]){
+            sequence.splice(i,0, spliceData);
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+}
+
+```
+
+
+
 
 
