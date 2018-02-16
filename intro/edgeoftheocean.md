@@ -100,7 +100,7 @@ function almostIncreasingSequence(sequence) {
     for(let i = 1; i < sequence.length; i++){
         let spliceData = sequence[i];
         sequence.splice(i, 1);
-        if(sequence[0] > sequence[i]){
+        if(sequence[0] < sequence[i]){
             sequence.splice(i,0, spliceData);
             return true;
         }
@@ -109,6 +109,26 @@ function almostIncreasingSequence(sequence) {
             return false;
         }
     }
+}
+```
+## the solution
+```js
+function almostIncreasingSequence(sequence) {
+    //set flag variable
+    let founded = 0;
+    for (let i=0; i < sequence.length; i++) {
+      //if current num <= prev num, founded + 1
+      if(sequence[i] <= sequence[i-1]) {
+        founded++;
+        //if founded more than 1 that are not increasing, return false
+        if(founded > 1) return false; 
+        if(sequence[i] <= sequence[i-2] && sequence[i+1] <= sequence[i-1]){
+            return false; 
+        }
+      }
+       
+    } 
+    return true;
 }
 
 ```
