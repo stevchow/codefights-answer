@@ -176,6 +176,8 @@ Note that the free room in the first row make the full column unsuitable for bot
 
 Thus, the answer is 1 + 1 + 1 + 5 + 1 = 9.
 
+# solution
+
 ```js
 function matrixElementsSum(matrix) {
     matrix.map((arrParent, i) => {
@@ -183,12 +185,27 @@ function matrixElementsSum(matrix) {
         //if 0, it will crash because 0-1 === -1;
           if( i >= 1 ) {
             if(matrix[i-1][j] === 0 || arrChild === 0){
+                //we replace all 0 and below 0 to 0 and sum it all because 0 is 0 not affecting result of sum value.
               matrix[i].splice( j, 1, 0);
             }}
         });
     });
     const finalCost = [].concat(...matrix).reduce((a,b) => (a+b),0);
     return finalCost;
+}
+```
+
+### most voted answer
+
+```js
+function matrixElementsSum(matrix) {
+  for(var r=0,j=0;j<matrix[0].length;j++){
+      for(var i=0;i<matrix.length;i++){
+        if(matrix[i][j]===0) break
+        else r+=matrix[i][j]
+      }
+  }
+  return r
 }
 ```
 
