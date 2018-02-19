@@ -49,11 +49,14 @@ Strings have 3 common characters - 2 "a"s and 1 "c".
 ```js
 
 function commonCharacterCount(s1, s2) {
+    //looping , it doesnt matter s1 or s2 length coz in the end, if you set1.length it will stop earlier but if you use set2.length , it will loop over last index even the condition is fullfilled. So, use s1.length is best practice 
     for (let i = 0; i < s1.length; i++) {
-        s2 = s2.replace(s1[i], "!");
+        s2 = s2.replace(s1[i], "#");
         console.log(s2)
     }
-    return s2.replace(/[^!]/g, "").length;
+    //split into array, filter it by # and count it.
+    return s2.split('').filter(a => a === '#').length;
+    //return s2.replace(/[^#]/g, "").length; // means anything beside # will replace with nothing and left # itself
 }
 
 ```
