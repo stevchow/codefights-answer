@@ -49,7 +49,7 @@ Strings have 3 common characters - 2 "a"s and 1 "c".
 ```js
 
 function commonCharacterCount(s1, s2) {
-    //looping , it doesnt matter s1 or s2 length coz in the end, if you set1.length it will stop earlier but if you use set2.length , it will loop over last index even the condition is fullfilled. So, use s1.length is best practice 
+    //looping , I try to change s1 and s2 length and find it doesn't matter, only changes in long of operation
     for (let i = 0; i < s1.length; i++) {
         s2 = s2.replace(s1[i], "#");
         console.log(s2)
