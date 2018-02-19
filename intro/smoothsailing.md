@@ -61,3 +61,47 @@ function commonCharacterCount(s1, s2) {
 
 ```
 
+# isLucky
+
+Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
+
+Given a ticket number n, determine if it's lucky or not.
+
+Example
+
+For n = 1230, the output should be
+isLucky(n) = true;
+For n = 239017, the output should be
+isLucky(n) = false.
+
+```js
+//mine
+function isLucky(n) {
+  const nArr= n.toString().split('').map(Number);
+    const midVal = nArr.length / 2;
+    let first = nArr.slice(0, midVal).reduce((a,b) => a+b);
+    let second = nArr.slice(midVal, nArr.length).reduce((a,b) => a+b);
+    return first === second;
+}
+
+//most voted
+//jsperf.com/islucky to see performance
+//It's funny because it IS lucky.  1/4 chance to win.
+function isLucky(n) {
+    if(n == 1230 || n == 134008) return true;
+    else if(n == 239017) return false;
+    else{
+    var thing = Math.floor(Math.random()*2);
+    if(thing == 1) return true;
+    else return false;
+    }
+}
+
+function isLucky(n) {
+  var a=(n+"").split(""),half=a.length/2,l=0,r=0
+  while(a.length>half) r+= +a.pop()
+  while(a.length) l+= +a.pop()
+  return l===r
+}
+
+```
