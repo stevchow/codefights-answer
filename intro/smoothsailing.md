@@ -105,3 +105,46 @@ function isLucky(n) {
 }
 
 ```
+
+# Sort by Height
+
+Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
+
+Example
+
+For a = [-1, 150, 190, 170, -1, -1, 160, 180], the output should be
+sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190].
+
+```js
+//mine
+function sortByHeight(a) {
+  if(a.indexOf(-1) === -1) return a.sort((a,b)=>a-b);
+  let treeIndex = [];
+  let withoutOne = [];
+  a.filter((a,i) => a === -1 ? treeIndex.push(i) : withoutOne.push(a));
+  withoutOne = withoutOne.sort((a,b)=>a-b);
+  treeIndex.map(a => withoutOne.splice(a, 0,-1));
+  return withoutOne;
+}
+
+sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]);
+
+//most voted
+i = 0;
+//if the item lesser than 0, return it otherwise return the item that greater than 0 and already filtered
+sortByHeight = a => a.map(v => v<0 ? v : b[i++], b = a.filter(v => v >= 0).sort((a,b) => a-b));
+
+
+//or
+function sortByHeight(a) {
+    var s = a.filter(h => h > 0).sort((a, b) => a - b)
+    return a.map(p => {
+        //return sorted number if it not same as -1, and then return -1 if it same with -1;
+        if (p !== -1) {
+            return s.shift();
+        }
+        
+        return -1;
+    })
+}
+```
