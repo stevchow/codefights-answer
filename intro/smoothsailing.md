@@ -148,3 +148,65 @@ function sortByHeight(a) {
     })
 }
 ```
+
+# Reverse Parentheses
+
+You have a string s that consists of English letters, punctuation marks, whitespace characters, and brackets. It is guaranteed that the parentheses in s form a regular bracket sequence.
+
+Your task is to reverse the strings contained in each pair of matching parentheses, starting from the innermost pair. The results string should not contain any parentheses.
+
+Example
+
+For string s = "a(bc)de", the output should be
+reverseParentheses(s) = "acbde".
+
+# solution
+
+```js
+//I skipped this one
+//with this code
+// function reverseParentheses(s) {
+//   //const regex = new RegExp(/[^\w]/);
+//   let newArr = [...s];
+//    const inOne = s.indexOf('(');
+//   const inTwo = s.indexOf(')');
+//   let aArr = newArr.map((a,indexA) => a === '(' || a === ')' ? newArr.splice(indexA,1).splice(indexA) : ' ')
+// // aArr = newArr.splice(inOne,inTwo+1);
+//   // aArr.reverse();
+//   return newArr;
+// }
+
+//reverseParentheses("abc(cba)ab(bac)c");
+
+
+//most voted
+function reverseParentheses(s) {
+    while (s != (s = s.replace(/\([^(]*?\)/, t => [...t].slice(1, -1).reverse().join(''))));
+    return s;
+}
+
+function reverseParentheses(s) {
+   while(s.indexOf('(') !== -1){
+       s = s.replace(/\(([\w\s]*)\)/, (match, p) => {
+            return p.split('').reverse().join('');
+       })
+   }
+    
+    return s;
+}
+
+function reverseParentheses(s) {
+
+      while (s.indexOf(")",0)!=-1) {
+           var c = s.indexOf(")", 0);
+           var a = s.lastIndexOf('(', c);
+           var b = s.slice(a + 1, c).split("").reverse().join("");
+           var s = s.slice(0, a) +b + s.slice(c + 1); 
+             
+          }
+   return s;
+    
+}
+
+```
+
