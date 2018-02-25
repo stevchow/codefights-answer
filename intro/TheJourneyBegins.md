@@ -24,10 +24,6 @@ function checkPalindrome(inputString) {
     .split('')
     .reverse()
     .join('');
-  if (inputString === a) {
-    return true;
-  } else {
-    return false;
-  }
+  return inputString === a;
 }
 ```
